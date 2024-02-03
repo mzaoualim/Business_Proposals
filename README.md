@@ -1,0 +1,2 @@
+# Business_Proposals
+Portfolio of business proposals, products designs and pre-deliverables presented to potential clients in freelancing plateforms.
