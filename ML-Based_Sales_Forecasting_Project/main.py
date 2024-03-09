@@ -62,19 +62,17 @@ def main():
 
         st.markdown("<h2 style='text-align: center;'> Sales Predictions vs Actuals </h2>", unsafe_allow_html=True)
         
-        best_params = {'changepoint_prior_scale': 9.997445406286284,
-                    'changepoint_range': 0.7457189514230351,
-                    'seasonality_prior_scale': 1.2645281821240346,
-                    'holidays_prior_scale': 6.233667468012274,
-                    'seasonality_mode': 'multiplicative',
-                    'growth': 'logistic',
-                    'weekly_seasonality': 40,
-                    'yearly_seasonality': 3
-                    }
+        regressors = ['Age', 'y_lag_1', 'y_lag_2', 'y_lag_3', 'y_lag_4', 'y_lag_5', 
+                  'y_lag_6', 'y_lag_7', 'y_lag_8', 'y_lag_9', 'y_lag_10',
+                  'y_rolling_mean', 'Gender_Female', 'Gender_Male', 'weekend'
+                  ]
         
         with open(f'ML-Based_Sales_Forecasting_Project/prophet_model.json', 'r') as f:
                 model = model_from_json(f.read())
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
+        for col in regressors:
+                model.add_regressor(col)
+                
         preds = model.predict(data_test)
 
         plt.plot(data_test['y'].values, color='blue')
