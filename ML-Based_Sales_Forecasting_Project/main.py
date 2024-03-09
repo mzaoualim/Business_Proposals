@@ -57,7 +57,7 @@ def main():
 
         st.markdown("<h2 style='text-align: center;'> Sales Predictions vs Actuals </h2>", unsafe_allow_html=True)
         
-        with open(f'ML-Based_Sales_Forecasting_Project/prophet_model.json', 'r') as f:
+        with open(f'ML-Based_Sales_Forecasting_Project/fbprophet_model.json', 'r') as f:
                 model = model_from_json(f.read())
                 
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
