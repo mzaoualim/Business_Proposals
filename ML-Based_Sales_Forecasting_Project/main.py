@@ -92,9 +92,9 @@ def main():
         
         future = st.button('Back to the future', use_container_width=True)
         if future:
-                if freq == 'days':
+                if freqq == 'days':
                    futures = model_future.make_future_dataframe(periods=periodss, freq='D')
-                elif freq == 'weeks':
+                elif freqq == 'weeks':
                    futures = model_future.make_future_dataframe(periods=periodss, freq='D')
                 else:
                    futures = model_future.make_future_dataframe(periods=periodss, freq='M')
