@@ -31,7 +31,7 @@ def main():
                 Sales_Features = st.selectbox('Sales Features:', ('Total Amount', 'Quantity'))
 
         
-        data = pd.read_csv('/app/business_proposals/ML-Based_Sales_Forecasting_Project/retail_sales_dataset.csv')
+        data = pd.read_csv('ML-Based_Sales_Forecasting_Project/retail_sales_dataset.csv')
         data['Age_group'] = pd.cut(data['Age'], bins=[0, 25, 65, 100], labels=['Young', 'Middle_Aged', 'Seniors'])
 
         # ploting
@@ -75,8 +75,8 @@ def main():
                     }
         
         model = Prophet(**best_params)
-        data_train = pd.read_csv('/app/business_proposals/ML-Based_Sales_Forecasting_Project/data_train')
-        data_test = pd.read_csv('/app/business_proposals/ML-Based_Sales_Forecasting_Project/data_test')
+        data_train = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_train')
+        data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
         model.fit(data_train)
         preds = model.predict(data_test)
 
