@@ -73,6 +73,8 @@ def main():
         fig, ax = plt.subplots()
         ax1 = plt.plot(data_test['y'].values, color='blue')
         ax2 = plt.plot(preds['yhat'].values, color='red')
+        plt.xticks(data_test['ds'], rotation=90, fontweight='light',  fontsize='x-small',)
+        plt.ylabel('Total Sales')
         plt.title('Predicted vs Actuals')
         st.pyplot(fig, use_container_width=True)
 
@@ -84,8 +86,7 @@ def main():
         with col1:
             freqq = st.selectbox('Trying to predict next', ('days', 'weeks'))
         with col2:
-            periodss = int(st.number_input('How many days/weeks are you trying to forcast?'))
-
+            periodss = st.number_input("Forcasting Horizon", value=10, placeholder="Numbers of days or weeks...")
         if freqq == 'days':
             future = model.make_future_dataframe(periods=periodss, freq='D')
         else:
