@@ -22,7 +22,7 @@ def main():
         st.markdown("<h2 style='text-align: center;'> Demographic based EDA </h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
-                Demographic_Feature = st.selectbox('Demographic Feature:', ('Age_group', 'Gender'))
+                Demographic_Feature = st.selectbox('Demographic Feature:', ('Age Groups', 'Gender'))
 
         with col2:
                 Sales_Features = st.selectbox('Sales Features:', ('Total Amount', 'Quantity'))
