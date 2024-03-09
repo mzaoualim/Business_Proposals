@@ -29,27 +29,26 @@ def main():
 
         
         data = pd.read_csv('ML-Based_Sales_Forecasting_Project/retail_sales_dataset.csv')
-        data['Age_group'] = pd.cut(data['Age'], bins=[0, 25, 65, 100], labels=['Young', 'Middle_Aged', 'Seniors'])
+        data['Age Groups'] = pd.cut(data['Age'], bins=[0, 25, 65, 100], labels=['Young', 'Middle Aged', 'Seniors'])
 
         # ploting
         # Generate plots
 
         plt.figure(figsize=(10, 6))
         fig, ax = plt.subplots()
-        ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         
         if Demographic_Feature == 'Age':
             if Sales_Features == 'Total Amount':
-                plt.title('Total Sales by Age_group')
+                plt.title('Total Sales by Age Groups')
             else:
-                plt.title('Quantity Sales by Age_group')
+                plt.title('Quantity Sales by Age Groups')
         else:
             if Sales_Features == 'Total Amount':
                 plt.title('Total Sales by Gender')
             else:
                 plt.title('Quantity Sales by Gender')
 
-        ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
+        ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, bins=4)
         plt.ylabel('Frequency')
         st.pyplot(fig, use_container_width=True)
 
