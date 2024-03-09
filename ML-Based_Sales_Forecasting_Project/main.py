@@ -95,7 +95,7 @@ def main():
              tomorrow = model_future.predict(futures)  
              plt.figure(figsize=(10, 6))
              fig, ax = plt.subplots()
-             ax = sn.lineplot(data=data_test, x=tomorrow['ds'], y=tomorrow['yhat'])
+             ax = sn.lineplot(data=tomorrow, x=tomorrow['ds'], y=tomorrow['yhat'])
              ax.set_ylabel('Total Forcasted Sales', rotation=90)
              ax.set_xlabel('Date', rotation=0)
              fig.autofmt_xdate()
