@@ -91,7 +91,7 @@ def main():
         if freqq == 'days':
             future = model_future.make_future_dataframe(periods=periodss, freq='D')
         else:
-            future = model_future.make_future_dataframe(periods=periodss, freq='D')
+            future = model_future.make_future_dataframe(periods=periodss, freq='W')
 
         fcst = model_future.predict(future)
         fig = model_future.plot(fcst)
