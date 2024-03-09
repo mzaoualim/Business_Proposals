@@ -66,6 +66,7 @@ def main():
                 model = model_from_json(f.read())
                 
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
+        data_test['ds'] = pd.to_datetime(data_test['ds'])
                 
         preds = model.predict(data_test)
         
