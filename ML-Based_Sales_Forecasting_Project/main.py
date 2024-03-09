@@ -72,9 +72,7 @@ def main():
                 ax2 = sn.lineplot(data=preds, x=preds['ds'], y=preds['yhat'])
                 ax1.set_ylabel('Total Sales', rotation=90)
                 ax1.set_xlabel('Date', rotation=0)
-                fig.autofmt_xdate()
-                plt.show()
-                
+                fig.autofmt_xdate()                
                 plt.title('Predicted vs Actuals')
                 st.pyplot(fig, use_container_width=True)
 
@@ -94,10 +92,14 @@ def main():
         future = st.button('Back to the future', use_container_width=True)
         
         if future:
-             fcst = model_future.predict(futures)
-             fig = model_future.plot(fcst)
-             plt.xlabel('Dates')
-             plt.ylabel('Predicted Total Sales')
+             tomorrow = model_future.predict(futures)  
+             plt.figure(figsize=(10, 6))
+             fig, ax = plt.subplots()
+             ax = sn.lineplot(data=data_test, x=tomorrow['ds'], y=tomorrow['yhat'])
+             ax.set_ylabel('Total Forcasted Sales', rotation=90)
+             ax.set_xlabel('Date', rotation=0)
+             fig.autofmt_xdate()
+             plt.title('Future Sales')
              st.pyplot(fig, use_container_width=True)
                         
 
