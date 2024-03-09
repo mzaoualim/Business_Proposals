@@ -1,4 +1,4 @@
-
+        
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -96,7 +96,8 @@ def main():
 
         fcst = model_future.predict(future)
         fig = model_future.plot(fcst)
-
+        plt.xlabel('Dates')
+        plt.ylabel('Predicted Total Sales')
         st.pyplot(fig, use_container_width=True)
 
 
