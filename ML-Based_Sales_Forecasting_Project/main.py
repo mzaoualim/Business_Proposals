@@ -86,26 +86,18 @@ def main():
         
         a, b = st.columns(2)
         with a:
-            freqq = st.selectbox('Trying to predict next', ('days', 'weeks'))
+            freqq = st.selectbox('Trying to predict next', ('day', 'week', 'month', 'quarter', 'year'))
         with b:
             periodss = st.number_input("Forcasting Horizon", value=0, placeholder="Numbers of days or weeks...")
         
         future = st.button('Back to the future', use_container_width=True)
         if future:
-                if freqq == 'days':
-                    futures = model_future.make_future_dataframe(periods=periodss, freq='D')
-                    fcst = model_future.predict(futures)
-                    fig = model_future.plot(fcst)
-                    plt.xlabel('Dates')
-                    plt.ylabel('Predicted Total Sales')
-                    st.pyplot(fig, use_container_width=True)
-                else:
-                    futures = model_future.make_future_dataframe(periods=periodss, freq='W')
-                    fcst = model_future.predict(futures)
-                    fig = model_future.plot(fcst)
-                    plt.xlabel('Dates')
-                    plt.ylabel('Predicted Total Sales')
-                    st.pyplot(fig, use_container_width=True)
+            futures = model_future.make_future_dataframe(periods=periodss, freq=freqq)
+            fcst = model_future.predict(futures)
+            fig = model_future.plot(fcst)
+            plt.xlabel('Dates')
+            plt.ylabel('Predicted Total Sales')
+            st.pyplot(fig, use_container_width=True)
 
 
 
