@@ -38,13 +38,6 @@ def main():
         fig, ax = plt.subplots()
         ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         
-        if Sales_Features == 'Total Amount':
-            plt.xlabel('Total Sales')
-        else:
-             plt.xlabel('Quantity Sales')
-
-        plt.ylabel('Frequency')
-
         if Demographic_Feature == 'Age':
             if Sales_Features == 'Total Amount':
                 plt.title('Total Sales by Age_group')
@@ -55,7 +48,8 @@ def main():
                 plt.title('Total Sales by Gender')
             else:
                 plt.title('Quantity Sales by Gender')
-
+                    
+        plt.ylabel('Frequency')
         st.pyplot(fig, use_container_width=True)
 
         st.write('---')
@@ -74,7 +68,7 @@ def main():
         fig, ax = plt.subplots()
         ax1 = plt.plot(data_test['y'].values, color='blue')
         ax2 = plt.plot(preds['yhat'].values, color='red')
-        plt.xticks(data_test['ds'], rotation=90, fontweight='light',  fontsize='x-small',)
+        plt.xticks(data_test['ds'])
         plt.ylabel('Total Sales')
         plt.title('Predicted vs Actuals')
         st.pyplot(fig, use_container_width=True)
