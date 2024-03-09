@@ -66,9 +66,9 @@ def main():
         
         plt.figure(figsize=(10, 6))
         fig, ax = plt.subplots()
-        ax1 = plt.plot(data_test['y'].values, color='blue')
-        ax2 = plt.plot(preds['yhat'].values, color='red')
-        plt.xticks(data_test['ds'])
+        ax1 = sn.lineplot(data=data_test, x=data_test['ds'], y=data_test['y'])
+        ax2 = sn.lineplot(data=preds, x=preds['ds'], y=preds['yhat'])
+        plt.xticks(rotation=45)
         plt.ylabel('Total Sales')
         plt.title('Predicted vs Actuals')
         st.pyplot(fig, use_container_width=True)
