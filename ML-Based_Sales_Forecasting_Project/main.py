@@ -62,16 +62,10 @@ def main():
 
         st.markdown("<h2 style='text-align: center;'> Sales Predictions vs Actuals </h2>", unsafe_allow_html=True)
         
-        regressors = ['Age', 'y_lag_1', 'y_lag_2', 'y_lag_3', 'y_lag_4', 'y_lag_5', 
-                  'y_lag_6', 'y_lag_7', 'y_lag_8', 'y_lag_9', 'y_lag_10',
-                  'y_rolling_mean', 'Gender_Female', 'Gender_Male', 'weekend'
-                  ]
-        
         with open(f'ML-Based_Sales_Forecasting_Project/prophet_model.json', 'r') as f:
                 model = model_from_json(f.read())
+                
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
-        for col in regressors:
-                model.add_regressor(col)
                 
         preds = model.predict(data_test)
 
