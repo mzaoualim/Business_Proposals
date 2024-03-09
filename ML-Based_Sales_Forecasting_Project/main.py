@@ -15,7 +15,7 @@ def main():
         st.write("""
         # 
         """)
-        st.markdown("<h1 style='text-align: center;'> Sales Forcaster </h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'> Sales Forecaster </h1>", unsafe_allow_html=True)
 
         st.write('---')
 
@@ -79,31 +79,25 @@ def main():
                 st.pyplot(fig, use_container_width=True)
 
         st.write('---')
-        st.markdown("<h2 style='text-align: center;'> Future Sales Forcasting </h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'> Future Sales Forecasting </h2>", unsafe_allow_html=True)
 
         with open(f'ML-Based_Sales_Forecasting_Project/fbp_model_future.json', 'r') as f:
                 model_future = model_from_json(f.read())
         
         a, b = st.columns(2)
         with a:
-            freqq = st.selectbox('Trying to predict next', ('days', 'weeks', 'months'))
+            begin = st.date_input('Starting date', format='DD/MM/YYYY')
         with b:
-            periodss = st.number_input("Forcasting Horizon", value=0, placeholder="Numbers of days or weeks...")
+            last = st.date_input('Ending date', format='DD/MM/YYYY')
         
-        future = st.button('Back to the future', use_container_width=True)
+        future = pd.DataFrame(pd.date_range(start=begin, end=last),columns=['ds'])
         if future:
-                if freqq == 'days':
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='D', include_history=False)
-                elif freqq == 'weeks':
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='D', include_history=False)
-                else:
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='M', include_history=False)
-
-                fcst = model_future.predict(futures)
-                fig = model_future.plot(fcst)
-                plt.xlabel('Dates')
-                plt.ylabel('Predicted Total Sales')
-                st.pyplot(fig, use_container_width=True)
+             futures = model_future.make_future_dataframe(periods=periodss, freq='M', include_history=False)
+        fcst = model_future.predict(futures)
+        fig = model_future.plot(fcst)
+        plt.xlabel('Dates')
+        plt.ylabel('Predicted Total Sales')
+        st.pyplot(fig, use_container_width=True)
                         
 
 
