@@ -31,7 +31,7 @@ def main():
                 Sales_Features = st.selectbox('Sales Features:', ('Total Amount', 'Quantity'))
 
         
-        data = pd.read_csv('/retail_sales_dataset.csv')
+        data = pd.read_csv('/business_proposals/ML-Based_Sales_Forecasting_Project/retail_sales_dataset.csv')
         data['Age_group'] = pd.cut(data['Age'], bins=[0, 25, 65, 100], labels=['Young', 'Middle_Aged', 'Seniors'])
 
         # ploting
