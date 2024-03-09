@@ -97,6 +97,7 @@ def main():
              fig, ax = plt.subplots()
              ax = sn.lineplot(data=tomorrow, x=tomorrow['ds'], y=tomorrow['yhat'])
              ax.set_ylabel('Total Forecasted Sales', rotation=90)
+             ax.set_xlabel(' ', rotation=90)
              fig.autofmt_xdate()
              plt.title('Future Sales')
              st.pyplot(fig, use_container_width=True)
