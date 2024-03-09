@@ -35,7 +35,8 @@ def main():
         # Generate plots
 
         plt.figure(figsize=(10, 6))
-        plot = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
+        fig, ax = plt.subplot()
+        ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         
         if Sales_Features == 'Total Amount':
             plt.xlabel('Total Sales')
@@ -55,7 +56,7 @@ def main():
             else:
                 plt.title('Quantity Sales by Gender')
 
-        st.pyplot(plot, use_container_width=True)
+        st.pyplot(fig, use_container_width=True)
 
         st.write('---')
 
