@@ -68,11 +68,13 @@ def main():
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
                 
         preds = model.predict(data_test)
-
-        plt.plot(data_test['y'].values, color='blue')
-        plt.plot(preds['yhat'].values, color='red')
+        
+        plt.figure(figsize=(10, 6))
+        fig, ax = plt.subplots()
+        ax1 = plt.plot(data_test['y'].values, color='blue')
+        ax2 = plt.plot(preds['yhat'].values, color='red')
         plt.title('Predicted vs Actuals')
-        st.pyplot(use_container_width=True)
+        st.pyplot(fig, use_container_width=True)
 
         st.write('---')
 
