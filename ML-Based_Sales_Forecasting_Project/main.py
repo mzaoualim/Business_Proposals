@@ -6,7 +6,7 @@ import seaborn as sn
 import matplotlib.pyplot as plt
 
 from prophet import Prophet
-# from prophet.serialize import model_from_json
+from prophet.serialize import model_from_json
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -74,10 +74,9 @@ def main():
                     'yearly_seasonality': 3
                     }
         
-        model = Prophet(**best_params)
-        data_train = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_train')
+        with open(f'ML-Based_Sales_Forecasting_Project/prophet_model.json', 'r') as f:
+                model = model_from_json(f.read())
         data_test = pd.read_csv('ML-Based_Sales_Forecasting_Project/data_test')
-        model.fit(data_train)
         preds = model.predict(data_test)
 
         plt.plot(data_test['y'].values, color='blue')
