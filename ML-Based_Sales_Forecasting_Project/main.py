@@ -8,9 +8,6 @@ import matplotlib.pyplot as plt
 from prophet import Prophet
 from prophet.serialize import model_from_json
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-
 
 
 
@@ -38,7 +35,7 @@ def main():
         # Generate plots
 
         plt.figure(figsize=(10, 6))
-        sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
+        plot = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         
         if Sales_Features == 'Total Amount':
             plt.xlabel('Total Sales')
@@ -58,7 +55,7 @@ def main():
             else:
                 plt.title('Quantity Sales by Gender')
 
-        st.pyplot(use_container_width=True)
+        st.pyplot(plot, use_container_width=True)
 
         st.write('---')
 
