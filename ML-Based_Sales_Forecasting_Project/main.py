@@ -81,20 +81,23 @@ def main():
 
         st.markdown("<h2 style='text-align: center;'> Future Sales Forcasting </h2>", unsafe_allow_html=True)
         
+        with open(f'ML-Based_Sales_Forecasting_Project/fbp_model_future.json', 'r') as f:
+                model_future = model_from_json(f.read())
+        
         col1, col2 = st.columns(2)
         with col1:
             freqq = st.selectbox('Trying to predict next', ('days', 'weeks'))
         with col2:
             periodss = st.number_input("Forcasting Horizon", value=10, placeholder="Numbers of days or weeks...")
         if freqq == 'days':
-            future = model.make_future_dataframe(periods=periodss, freq='D')
+            future = model_future.make_future_dataframe(periods=periodss, freq='D')
         else:
-            future = model.make_future_dataframe(periods=periodss, freq='D')
+            future = model_future.make_future_dataframe(periods=periodss, freq='D')
 
-        fcst = model.predict(future)
-        fig = model.plot(fcst)
+        fcst = model_future.predict(future)
+        fig = model_future.plot(fcst)
 
-        st.pyplot(use_container_width=True)
+        st.pyplot(fig, use_container_width=True)
 
 
 
