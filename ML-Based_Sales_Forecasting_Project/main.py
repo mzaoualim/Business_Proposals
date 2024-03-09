@@ -69,7 +69,7 @@ def main():
         fig, ax = plt.subplots()
         ax1 = sn.lineplot(data=data_test, x=data_test['ds'], y=data_test['y'])
         ax1.set_ylabel('Total Sales', rotation=0)
-        ax1.set_xlabeldata_test['ds'], rotation=90)
+        ax1.set_xlabel(data_test['ds'], rotation=90)
         ax2 = sn.lineplot(data=preds, x=preds['ds'], y=preds['yhat'])
        
         plt.title('Predicted vs Actuals')
