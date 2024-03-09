@@ -90,7 +90,7 @@ def main():
         with col1:
             freqq = st.selectbox('Trying to predict next', ('days', 'weeks'))
         with col2:
-            periodss = st.number_input('How many days/weeks are you trying to forcast?')
+            periodss = int(st.number_input('How many days/weeks are you trying to forcast?'))
 
         if freqq == 'days':
             future = model.make_future_dataframe(periods=periodss, freq='D')
