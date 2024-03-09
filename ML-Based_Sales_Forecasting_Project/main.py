@@ -48,7 +48,8 @@ def main():
                 plt.title('Total Sales by Gender')
             else:
                 plt.title('Quantity Sales by Gender')
-                    
+
+        ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         plt.ylabel('Frequency')
         st.pyplot(fig, use_container_width=True)
 
