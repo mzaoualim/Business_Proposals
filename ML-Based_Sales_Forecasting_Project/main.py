@@ -90,7 +90,9 @@ def main():
         with b:
             last = st.date_input('Ending date', format='DD/MM/YYYY')
         
-        future = pd.DataFrame(pd.date_range(start=begin, end=last),columns=['ds'])
+        futures = pd.DataFrame(pd.date_range(start=begin, end=last),columns=['ds'])
+        future = st.button('Back to the future', use_container_width=True)
+        
         if future:
              futures = model_future.make_future_dataframe(periods=periodss, freq='M', include_history=False)
         fcst = model_future.predict(futures)
