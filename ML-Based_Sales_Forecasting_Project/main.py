@@ -35,7 +35,7 @@ def main():
         # Generate plots
 
         plt.figure(figsize=(10, 6))
-        fig, ax = plt.subplot()
+        fig, ax = plt.subplots()
         ax = sn.histplot(data=data, x=Sales_Features , hue = Demographic_Feature, kde=True, bins=4, common_norm=True)
         
         if Sales_Features == 'Total Amount':
