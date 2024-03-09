@@ -70,7 +70,9 @@ def main():
         ax1 = sn.lineplot(data=data_test, x=data_test['ds'], y=data_test['y'])
         ax2 = sn.lineplot(data=preds, x=preds['ds'], y=preds['yhat'])
         ax1.set_ylabel('Total Sales', rotation=90)
+        ax1.set_xlabel('Date', rotation=0)
         fig.autofmt_xdate()
+        plt.show()
         
         plt.title('Predicted vs Actuals')
         st.pyplot(fig, use_container_width=True)
