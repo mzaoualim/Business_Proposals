@@ -54,7 +54,7 @@ def main():
                 plt.ylabel('Frequency')
                 st.pyplot(fig, use_container_width=True)
         st.write('---')
-        st.markdown("<h2 style='text-align: center;'> Sales Predictions vs Actuals </h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'> Sample Sales Predictions vs Actuals </h2>", unsafe_allow_html=True)
         
         predict = st.button('Predict', use_container_width=True)
         if predict:
@@ -93,11 +93,11 @@ def main():
         future = st.button('Back to the future', use_container_width=True)
         if future:
                 if freqq == 'days':
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='D')
+                   futures = model_future.make_future_dataframe(periods=periodss, freq='D', include_history=False)
                 elif freqq == 'weeks':
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='D')
+                   futures = model_future.make_future_dataframe(periods=periodss, freq='D', include_history=False)
                 else:
-                   futures = model_future.make_future_dataframe(periods=periodss, freq='M')
+                   futures = model_future.make_future_dataframe(periods=periodss, freq='M', include_history=False)
 
                 fcst = model_future.predict(futures)
                 fig = model_future.plot(fcst)
