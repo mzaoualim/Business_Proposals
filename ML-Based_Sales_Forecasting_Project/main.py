@@ -75,8 +75,8 @@ def main():
                     }
         
         model = Prophet(**best_params)
-        data_train = pd.read_csv('/data_train')
-        data_test = pd.read_csv('/data_test')
+        data_train = pd.read_csv('/business_proposals/ML-Based_Sales_Forecasting_Project/data_train')
+        data_test = pd.read_csv('/business_proposals/ML-Based_Sales_Forecasting_Project/data_test')
         model.fit(data_train)
         preds = model.predict(data_test)
 
