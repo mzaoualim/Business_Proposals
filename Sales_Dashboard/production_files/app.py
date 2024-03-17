@@ -63,11 +63,13 @@ def main():
   submit = st.button('Analyse the Data', use_container_width=True)
 
   if submit:
-    data.where(data.Branch == 'A').groupby(data['DateTime']\
+    fig, ax = plt.subplot()
+    ax = data.where(data.Branch == 'A').groupby(data['DateTime']\
                                        .dt.day_of_week).agg(['min', 'mean', 'median', 'max'])\
                                         ['Total'].plot(kind='bar', 
                                                        figsize=(10, 5),
                                                        stacked=True)
+    st.pyplot(fig)
   st.write('---')
 
   # fig = ploter(smooth, features, time_horizon)
