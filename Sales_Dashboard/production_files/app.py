@@ -50,7 +50,7 @@ def main():
 
   col1, col2 = st.columns(2)
   with col1:
-          feat_list = data.select_dtypes(include='object').columns
+          feat_list = ['Branch', 'City', 'Customer type', 'Gender', 'Product line', 'Payment']
           features = st.selectbox('Features:', feat_list)
 
   with col2:
