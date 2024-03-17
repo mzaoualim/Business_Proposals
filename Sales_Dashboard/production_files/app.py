@@ -48,7 +48,7 @@ def main():
   # features vs time horizon
   st.markdown("<h2 style='text-align: center;'> Features vs Time Horizon Sales Analysis </h2>", unsafe_allow_html=True)
 
-  col1, col2, col3 = st.columns(2)
+  col1, col2, col3 = st.columns(3)
   with col1:
           feat_list = ['Branch', 'City', 'Customer type', 'Gender', 'Product line', 'Payment']
           features = st.selectbox('Features:', feat_list)
