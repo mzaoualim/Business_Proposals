@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 
 def main():
+  # loading data
+  data = pd.read_csv('Sales_Dashboard/production_files/data.csv')
+  st.write(data.head(3))
+  
   # main dashboard title
   st.write("""
         # 
@@ -33,6 +37,10 @@ def main():
           time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
 
   submit = st.button('Analyse the Data', use_container_width=True)
+  st.write('---')
+  
+  # Customer Satisfaction
+  st.markdown("<h2 style='text-align: center;'> Rating </h2>", unsafe_allow_html=True)
   
 
 
