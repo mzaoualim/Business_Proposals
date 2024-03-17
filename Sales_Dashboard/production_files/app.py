@@ -5,6 +5,20 @@ import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
 
+def ploter(s, f , t):
+  '''
+  helper function to plot sales according to
+   - smoothing level
+   - categorical feature of choice
+   - time horizon
+  '''
+
+  # filter data according to params
+  data_filter = data.copy()
+    
+
+  return fig
+  
 def main():
   # loading data
   st.markdown("<h1 style='text-align: center;'> Raw Data </h1>", unsafe_allow_html=True)
@@ -35,14 +49,17 @@ def main():
 
   col1, col2 = st.columns(2)
   with col1:
-          features = st.selectbox('Features:', (''))
+          feat_list = data.select_dtypes(include='object')
+          features = st.selectbox('Features:', feat_list)
 
   with col2:
           time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
 
   submit = st.button('Analyse the Data', use_container_width=True)
   st.write('---')
-  
+
+  fig = ploter(smooth, features, time_horizon)
+  st.pyplot(fig, use_container_width=True)
   # Customer Satisfaction
   st.markdown("<h2 style='text-align: center;'> Rating </h2>", unsafe_allow_html=True)
   
