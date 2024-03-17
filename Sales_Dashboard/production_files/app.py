@@ -54,7 +54,7 @@ def main():
           features = st.selectbox('Features:', feat_list)
   
   with col2:
-          Sub_features = st.selectbox('Sub_features:', data.features.unique())
+          Sub_features = st.selectbox('Sub_features:', data[features].unique())
 
   with col3:
           time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
