@@ -18,8 +18,21 @@ def main():
   # smoothing level
   st.markdown("<h2 style='text-align: center;'> Smoothing the sales </h2>", unsafe_allow_html=True)
   
-  smooth = st.slider(label, min_value=0, max_value=90, value=30, step=1)
+  smooth = st.slider('Smoothing level', min_value=0, max_value=90, value=30, step=1)
   st.write(smooth)
+  st.write('---')
+
+  # features vs time horizon
+  st.markdown("<h2 style='text-align: center;'> Features vs Time Horizon Sales Analysis </h2>", unsafe_allow_html=True)
+
+  col1, col2 = st.columns(2)
+  with col1:
+          features = st.selectbox('Features:', (''))
+
+  with col2:
+          time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
+
+  submit = st.button('Analyse the Data', use_container_width=True)
   
 
 
