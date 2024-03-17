@@ -5,7 +5,7 @@ import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
 
-# def ploter(s, f , t):
+# def ploter(s, f, sf, t):
 #   '''
 #   helper function to plot sales according to
 #    - smoothing level
@@ -13,12 +13,13 @@ import seaborn as sb
 #    - time horizon
 #   '''
 
-#   # filter data according to params
-#   # data_filter = data.copy()
-#   pass
-    
-
-#   # return fig
+#   fig, ax = plt.subplot()
+#   filterd_data = data.where(data.f == sf).groupby(data['DateTime'].dt.t).agg(['min', 'mean', 'median', 'max'])
+#   ax = filterd_data['Total'].plot(kind='barh')
+#   plt.set_x
+#   plt.set_y
+#   plt.set_title()
+#   return fig
   
 def main():
   # loading data
@@ -60,6 +61,13 @@ def main():
           time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
 
   submit = st.button('Analyse the Data', use_container_width=True)
+
+  if submit:
+    data.where(data.Branch == 'A').groupby(data['DateTime']\
+                                       .dt.day_of_week).agg(['min', 'mean', 'median', 'max'])\
+                                        ['Total'].plot(kind='bar', 
+                                                       figsize=(10, 5),
+                                                       stacked=True)
   st.write('---')
 
   # fig = ploter(smooth, features, time_horizon)
