@@ -7,8 +7,12 @@ import seaborn as sb
 
 def main():
   # loading data
+  st.markdown("<h1 style='text-align: center;'> Raw Data </h1>", unsafe_allow_html=True)
+
   data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
   st.write(data)
+  st.write('---')
+
   
   # main dashboard title
   st.write("""
