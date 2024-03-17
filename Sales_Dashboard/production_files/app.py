@@ -7,7 +7,7 @@ import seaborn as sb
 
 def main():
   # loading data
-  data = pd.read_csv('/production_files/data.csv')
+  data = pd.read_csv('Sales_Dashboard/production_files/app.pydata.csv')
   st.write(data.head(3))
   
   # main dashboard title
