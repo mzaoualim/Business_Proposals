@@ -5,25 +5,44 @@ import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
 
-# def data_prep(data):
+def data_prep(data):
+  '''
+  preprocessing raw data
+  '''
   
-#   return clean_data
+  clean_data = data[['City', 'Customer type', 'Gender', 'Product line', 'Total', 'Date', 'Time', 'Payment', 'Rating']].copy()
+  clean_data['DateTime'] = clean_data['Date']+ 'T' +clean_data['Time']
+  clean_data['DateTime'] = pd.to_datetime(clean_data['DateTime'])
+  clean_data.drop(columns=['Date', 'Time'], inplace=True)
+  clean_data['Rating'] = clean_data['Rating'].round(0)
+  clean_data = clean_data.set_index('DateTime').sort_index()
   
-# def ploter(s, f, sf, t):
-#   '''
-#   helper function to plot sales according to
-#    - smoothing level
-#    - categorical feature of choice
-#    - time horizon
-#   '''
+  return clean_data
+  
+def ploter(smooth, feat, sub_feat, time_horizon):
+  '''
+  helper function to plot sales according to
+   - smoothing level
+   - categorical feature & sub feature of choice
+   - time horizon
+  '''
+  time_dict = {
+    'Hours': hour,
+    'Days': dayofweek,
+    'Weeks': week,
+    'Months': month
+              }
+  dataset = data_prep(data)
+  dataset['Total Sales'] = dataset['Total'].rolling(smooth).mean()
+  dataset.dropna(inplace=True)
 
-#   fig, ax = plt.subplot()
-#   filterd_data = data.where(data.f == sf).groupby(data['DateTime'].dt.t).agg(['min', 'mean', 'median', 'max'])
-#   ax = filterd_data['Total'].plot(kind='barh')
-#   plt.set_x
-#   plt.set_y
-#   plt.set_title()
-#   return fig
+  fig, ax = plt.subplots()
+  y = dataset.groupby(data['DateTime'].dt.time_dict[time_horizon]).agg('mean')['Total Sales']
+  bars = ax.bar(y, align='center')
+  ax.bar_label(hbars, fmt='%.2f')
+  ax.set_xlim(right=15)  # adjust xlim to fit labels
+  
+  return fig
   
 def main():
   # loading data
@@ -67,19 +86,15 @@ def main():
   submit = st.button('Analyse the Data', use_container_width=True)
 
   if submit:
-    fig, ax = plt.subplot()
-    ax = data.where(data.Branch == 'A').groupby(data['DateTime']\
-                                       .dt.day_of_week).agg(['min', 'mean', 'median', 'max'])\
-                                        ['Total'].plot(kind='bar', 
-                                                       figsize=(10, 5),
-                                                       stacked=True)
+    fig = ploter(smooth, feat, sub_feat, time_horizon)
     st.pyplot(fig)
+    
   st.write('---')
 
   # fig = ploter(smooth, features, time_horizon)
   # st.pyplot(fig, use_container_width=True)
   # Customer Satisfaction
-  st.markdown("<h2 style='text-align: center;'> Rating </h2>", unsafe_allow_html=True)
+  st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
   
 
 
