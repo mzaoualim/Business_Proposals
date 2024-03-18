@@ -5,6 +5,10 @@ import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
 
+# def data_prep(data):
+  
+#   return clean_data
+  
 # def ploter(s, f, sf, t):
 #   '''
 #   helper function to plot sales according to
