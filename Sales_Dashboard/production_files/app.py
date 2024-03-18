@@ -26,18 +26,20 @@ def ploter(smooth, feat, sub_feat, time_horizon):
    - categorical feature & sub feature of choice
    - time horizon
   '''
-  time_dict = {
-    'Hours': hour,
-    'Days': dayofweek,
-    'Weeks': week,
-    'Months': month
-              }
+
   dataset = data_prep(data)
   dataset['Total Sales'] = dataset['Total'].rolling(smooth).mean()
   dataset.dropna(inplace=True)
 
+  time_dict = {
+  'Hours': dataset.index.hour,
+  'Days': dataset.index.dayofweek,
+  'Weeks': dataset.index.week,
+  'Months': dataset.index.month
+            }
+
   fig, ax = plt.subplots()
-  y = dataset.groupby(data['DateTime'].dt.time_dict[time_horizon]).agg('mean')['Total Sales']
+  y = dataset.groupby(time_dict[time_horizon]).agg('mean')['Total Sales']
   bars = ax.bar(y, align='center')
   ax.bar_label(hbars, fmt='%.2f')
   ax.set_xlim(right=15)  # adjust xlim to fit labels
