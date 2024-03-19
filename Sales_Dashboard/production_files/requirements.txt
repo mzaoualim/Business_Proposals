@@ -1,4 +1,5 @@
 streamlit
+st-star-rating
 numpy
 pandas
 matplotlib

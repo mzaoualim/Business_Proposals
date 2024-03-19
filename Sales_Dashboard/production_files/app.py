@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_star_rating import st_star_rating
 import pandas as pd
 import numpy as np
 import datetime
