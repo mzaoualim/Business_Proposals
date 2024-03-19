@@ -103,7 +103,7 @@ def main():
   st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
   satisf = st.button('Satisfied?', use_container_width=True)
   if satisf:
-    global stars
+
     star = st_star_rating('', amount_of_stars=stars,
     default_value=5, size=100, 
     emoticons=False, read_only=True, 
