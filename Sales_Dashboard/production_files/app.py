@@ -43,7 +43,7 @@ def ploter(smooth, feat, sub_feat, time_horizon):
             }
 
   fig, ax = plt.subplots()
-  ax = dataset.groupby(time_dict[time_horizon]).agg('mean')['Total Sales'].plot()
+  ax = dataset.where(dataset[feat] == sub_feat).groupby(time_dict[time_horizon]).mean(numeric_only=True)['Total Sales'].plot()
   ax.set_xlabel(time_horizon)
   ax.set_ylabel('Sales')
   ax.set_title('Mean Sales by %s %s over the %s' %(feat, sub_feat, time_horizon))  
