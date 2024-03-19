@@ -92,7 +92,7 @@ def main():
   submit = st.button('Analyse the Data', use_container_width=True)
 
   if submit:
-    fig, amount_of_stars = ploter(smooth, features, Sub_features, time_horizon)
+    fig, stars = ploter(smooth, features, Sub_features, time_horizon)
     st.pyplot(fig)
     
   st.write('---')
@@ -102,7 +102,7 @@ def main():
   # Customer Satisfaction
   st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
   
-  stars = st_star_rating('', amount_of_stars=amount_of_stars,
+  stars = st_star_rating('', amount_of_stars=stars,
    default_value=5, size=100, 
    emoticons=False, read_only=True, 
    dark_theme=True, resetButton=False, 
