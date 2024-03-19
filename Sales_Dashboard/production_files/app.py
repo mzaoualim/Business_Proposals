@@ -104,14 +104,14 @@ def main():
   satisf = st.button('Satisfied?', use_container_width=True)
   if satisf:
 
-    stars = st_star_rating('', amount_of_stars=stars,
+    star = st_star_rating('', amount_of_stars=stars,
     default_value=5, size=100, 
     emoticons=False, read_only=True, 
     dark_theme=True, resetButton=False, 
     resetLabel=False,
     customCSS=False, on_click=None)
 
-    st.write(stars)
+    st.write(star)
 
 
 
