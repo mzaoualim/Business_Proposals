@@ -103,7 +103,7 @@ def main():
     star = st_star_rating('', 10, stars, 50, None, None, None, 
                           None, None, None, None)
 
-    a, b, c = st.columns(3):
+    a, b, c = st.columns(3)
       with a:
         st.write('')
       with b:
