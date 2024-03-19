@@ -108,7 +108,7 @@ def main():
    resetLabel=False,
    customCSS=False, on_click=None)
 
-st.write(stars)
+  st.write(stars)
 
 
 
