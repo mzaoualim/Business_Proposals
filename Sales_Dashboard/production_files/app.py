@@ -38,7 +38,7 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   time_dict = {
   'Working hours': dataset.index.hour,
   'Days of Week': dataset.index.dayofweek,
-  'Weeks': dataset.index.week,
+  'Weeks': dataset.index.isocalendar().week,
   'Months': dataset.index.month
             }
 
