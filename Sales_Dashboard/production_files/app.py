@@ -32,18 +32,17 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   dataset.dropna(inplace=True)
 
   time_dict = {
-  'Hours': dataset.index.hour,
-  'Days': dataset.index.dayofweek,
+  'Working hours': dataset.index.hour,
+  'Days of Week': dataset.index.dayofweek,
   'Weeks': dataset.index.week,
   'Months': dataset.index.month
             }
 
   fig, ax = plt.subplots()
-  y = dataset.groupby(time_dict[time_horizon]).agg('mean')['Total Sales']
-  bars = ax.bar(y, align='center')
-  ax.bar_label(hbars, fmt='%.2f')
-  ax.set_xlim(right=15)  # adjust xlim to fit labels
-  
+  ax = dataset.groupby(time_dict[time_horizon]).agg('mean')['Total Sales'].plot()
+  ax.set_xlabel(time_horizon)
+  ax.set_ylabel('Sales')
+  ax.set_title('Mean Sales by %s %s over the %s' %(feat, sub_feat, time_horizon))  
   return fig
   
 def main():
@@ -76,19 +75,19 @@ def main():
 
   col1, col2, col3 = st.columns(3)
   with col1:
-          feat_list = ['Branch', 'City', 'Customer type', 'Gender', 'Product line', 'Payment']
+          feat_list = ['City', 'Customer type', 'Gender', 'Product line', 'Payment']
           features = st.selectbox('Features:', feat_list)
   
   with col2:
-          Sub_features = st.selectbox('Sub_features:', data[features].unique())
+          Sub_features = st.selectbox('Sub features:', data[features].unique())
 
   with col3:
-          time_horizon = st.selectbox('Time Horizon', ('Hours', 'Days', 'Weeks', 'Months'))
+          time_horizon = st.selectbox('Time Horizon', ('Working hours', 'Days of Week', 'Weeks', 'Months'))
 
   submit = st.button('Analyse the Data', use_container_width=True)
 
   if submit:
-    fig = ploter(smooth, feat, sub_feat, time_horizon)
+    fig = ploter(smooth, features, Sub_features, time_horizon)
     st.pyplot(fig)
     
   st.write('---')
