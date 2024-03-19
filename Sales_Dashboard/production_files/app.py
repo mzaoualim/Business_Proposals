@@ -44,10 +44,11 @@ def ploter(smooth, feat, sub_feat, time_horizon):
 
   fig, ax = plt.subplots()
   ax = dataset.where(dataset[feat] == sub_feat).groupby(time_dict[time_horizon]).mean(numeric_only=True)['Total Sales'].plot()
+  stars = dataset.where(dataset[feat] == sub_feat).groupby(time_dict[time_horizon]).mean(numeric_only=True)['Rating'].mean().round(0) 
   ax.set_xlabel(time_horizon)
   ax.set_ylabel('Sales')
   ax.set_title('Mean Sales by %s %s over the %s' %(feat, sub_feat, time_horizon))  
-  return fig
+  return fig, stars
   
 def main():
   # raw data overview
@@ -90,7 +91,7 @@ def main():
   submit = st.button('Analyse the Data', use_container_width=True)
 
   if submit:
-    fig = ploter(smooth, features, Sub_features, time_horizon)
+    fig, amount_of_stars = ploter(smooth, features, Sub_features, time_horizon)
     st.pyplot(fig)
     
   st.write('---')
@@ -100,6 +101,14 @@ def main():
   # Customer Satisfaction
   st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
   
+  stars = st_star_rating('', amount_of_stars=amount_of_stars,
+   default_value=5, size=100, 
+   emoticons=False, read_only=True, 
+   dark_theme=True, resetButton=False, 
+   resetLabel=False,
+   customCSS=False, on_click=None)
+
+st.write(stars)
 
 
 
