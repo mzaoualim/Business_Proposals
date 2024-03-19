@@ -100,13 +100,7 @@ def main():
     # Customer Satisfaction
     st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
   
-    star = st_star_rating('', stars,
-      default_value=5, size=100, 
-      emoticons=False, read_only=True, 
-      dark_theme=True, resetButton=False, 
-      resetLabel=False,
-      customCSS=False, on_click=None
-      )
+    star = st_star_rating('', stars, 5, 100)
 
     st.write(star)
 
