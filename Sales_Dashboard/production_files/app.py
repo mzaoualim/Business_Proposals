@@ -104,12 +104,12 @@ def main():
                           None, None, None, None)
 
     a, b, c = st.columns(3)
-      with a:
-        st.write('')
-      with b:
-        st.write(star)
-      with c:
-        st.write('')
+    with a:
+      st.write('')
+    with b:
+      st.write(star)
+    with c:
+      st.write('')
 
     
 
