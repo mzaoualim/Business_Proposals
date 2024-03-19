@@ -5,6 +5,10 @@ import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
 
+# loading data
+data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
+
+
 def data_prep(data):
   '''
   preprocessing raw data
@@ -46,10 +50,9 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   return fig
   
 def main():
-  # loading data
+  # raw data overview
   st.markdown("<h1 style='text-align: center;'> Raw Data </h1>", unsafe_allow_html=True)
 
-  data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
   st.write(data)
   st.write('---')
 
