@@ -99,17 +99,16 @@ def main():
 
     # Customer Satisfaction
     st.markdown("<h2 style='text-align: center;'> Customer Satisfaction Rating </h2>", unsafe_allow_html=True)
-    satisf = st.button('Satisfied?', use_container_width=True)
-    if satisf:
-
-      star = st_star_rating('', amount_of_stars=stars,
+  
+    star = st_star_rating('', amount_of_stars=stars,
       default_value=5, size=100, 
       emoticons=False, read_only=True, 
       dark_theme=True, resetButton=False, 
       resetLabel=False,
-      customCSS=False, on_click=None)
+      customCSS=False, on_click=None
+      )
 
-      st.write(star)
+    st.write(star)
 
 
 
