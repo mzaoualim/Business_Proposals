@@ -48,13 +48,12 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   ax.set_title('Mean Sales by %s %s over the %s' %(sub_feat, feat, time_horizon))  
   return fig, stars
 
-  
+# loading data
+data = pd.read_csv('Sales_Dashboard/production_files/data.xls')  
+
 def main():
   # raw data overview
   st.markdown("<h1 style='text-align: center;'> Raw Data </h1>", unsafe_allow_html=True)
-
-  # loading data
-  data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
 
   st.write(data)
   st.write('---')
