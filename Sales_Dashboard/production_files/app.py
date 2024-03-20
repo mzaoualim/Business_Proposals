@@ -11,6 +11,8 @@ def main():
   # raw data overview
   st.markdown("<h1 style='text-align: center;'> Raw Data </h1>", unsafe_allow_html=True)
 
+  # loading data
+  data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
   st.write(data)
   st.write('---')
 
