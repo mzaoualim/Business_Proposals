@@ -14,7 +14,7 @@ def main():
 
   # loading data
   data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
-  
+
   st.write(data)
   st.write('---')
 
@@ -32,7 +32,7 @@ def main():
   st.markdown("<h2 style='text-align: center;'> Smoothing the sales </h2>", unsafe_allow_html=True)
   
   smooth = st.slider('Smoothing level', min_value=1, max_value=90, value=30, step=1)
-  st.write(smooth)
+  # st.write(smooth)
   st.write('---')
 
   # features vs time horizon
