@@ -5,7 +5,7 @@ import numpy as np
 import datetime
 import matplotlib.pyplot as plt
 import seaborn as sb
-from hepler_functions.py import ploter, data_prep
+from hepler_functions import ploter, data_prep
 
 # loading data
 data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
