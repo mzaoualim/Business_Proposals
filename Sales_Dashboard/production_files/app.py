@@ -49,7 +49,7 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   stars = dataset.where(dataset[feat] == sub_feat).groupby(time_dict[time_horizon]).mean(numeric_only=True)['Rating'].mean().round(0) 
   ax.set_xlabel(time_horizon)
   ax.set_ylabel('Sales')
-  ax.set_title('Mean Sales by %s %s over the %s' %(feat, sub_feat, time_horizon))  
+  ax.set_title('Mean Sales by %s %s over the %s' %(sub_feat, feat, time_horizon))  
   return fig, stars
   
 def main():
@@ -72,7 +72,7 @@ def main():
   # smoothing level
   st.markdown("<h2 style='text-align: center;'> Smoothing the sales </h2>", unsafe_allow_html=True)
   
-  smooth = st.slider('Smoothing level', min_value=0, max_value=90, value=30, step=1)
+  smooth = st.slider('Smoothing level', min_value=1, max_value=90, value=30, step=1)
   st.write(smooth)
   st.write('---')
 
