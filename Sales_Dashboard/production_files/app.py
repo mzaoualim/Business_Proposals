@@ -104,7 +104,8 @@ def main():
     star = st_star_rating('', 10, stars, 50, None, None, None, 
                           None, None, None, None)
 
-    st.write(star)
+    st.markdown("<h2 style='text-align: center;'> {st.write(star)} </h2>", unsafe_allow_html=True)
+    
 
     
 
