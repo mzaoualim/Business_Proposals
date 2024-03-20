@@ -40,6 +40,7 @@ def ploter(smooth, feat, sub_feat, time_horizon):
   'Working hours': dataset.index.hour,
   'Days of Week': dataset.index.dayofweek,
   'Weeks': dataset.index.isocalendar().week,
+  'Days of Month': dataset.index.day,
   'Months': dataset.index.month
             }
 
@@ -87,7 +88,7 @@ def main():
           Sub_features = st.selectbox('Sub features:', data[features].unique())
 
   with col3:
-          time_horizon = st.selectbox('Time Horizon', ('Working hours', 'Days of Week', 'Weeks', 'Months'))
+          time_horizon = st.selectbox('Time Horizon', ('Working hours', 'Days of Week', 'Weeks', 'Days of Month','Months'))
 
   submit = st.button('Analyse the Data', use_container_width=True)
 
