@@ -36,7 +36,7 @@ def scraper(city_:str, type:str):
   return dataframe of available and latest max 20 listed rentals
   '''
   #default link
-  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_name], home[home_type])
+  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_], home[type])
 
   # raw results
   result = pd.read_html(link)
