@@ -75,6 +75,7 @@ def main():
 
   if submit:
       # st.dataframe(scraper(city_, types), use_container_width=True)
+      scraper(city_, types)
       
   st.write('---')
 
