@@ -74,16 +74,16 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-      data = scraper(city_, types)
+      scraper(city_, types)
       # st.dataframe(data, use_container_width=True)
-      csv = data.to_csv()
+      # csv = data.to_csv()
 
-      st.download_button(
-            label="Download Listings as CSV file",
-            data=csv,
-            file_name='listings.csv',
-            mime='text/csv',
-            use_container_width=True
+      # st.download_button(
+      #       label="Download Listings as CSV file",
+      #       data=csv,
+      #       file_name='listings.csv',
+      #       mime='text/csv',
+      #       use_container_width=True
           )
   st.write('---')
 
