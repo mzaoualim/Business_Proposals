@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from st_aggrid import AgGrid
 #import re
 
 #----------------------------------------------------------------------
@@ -75,7 +74,7 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-      AgGrid(scraper(city_, types))
+      st.dataframe(scraper(city_, types), use_container_width=True)
       
   st.write('---')
 
