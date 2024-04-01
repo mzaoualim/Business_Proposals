@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 #import re
 
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 # Inputs to function
 
 # link to wg-gesucht.de
@@ -28,7 +28,7 @@ home = {
     'Flats': 2,
     'Houses': 3
     }
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 def scraper(city_name:str, home_type:str):
   '''
   starter function to retrieve latest rental listing from wg-gesucht.de website
@@ -51,7 +51,7 @@ def scraper(city_name:str, home_type:str):
   result.reset_index(drop=True, inplace=True)
 
   return result
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
 
 def main():
   # raw data overview
