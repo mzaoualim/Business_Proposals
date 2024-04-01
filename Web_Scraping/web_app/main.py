@@ -29,7 +29,7 @@ home = {
     'Houses': 3
     }
 #----------------------------------------------------------------------
-def scraper(city_name:str, home_type:str):
+def scraper(city_:str, type:str):
   '''
   starter function to retrieve latest rental listing from wg-gesucht.de website
   takes as input city_name and home_type
