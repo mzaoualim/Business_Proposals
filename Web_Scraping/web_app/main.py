@@ -40,7 +40,7 @@ def scraper(city_name:str, home_type:str):
   # preprocessing
 
   ## select columns and drop empty rows
-  if home_type == '1 Room Flats' or 'Flatshares':
+  if home_type == '1 Room Flats' or home_type == 'Flatshares':
       result = result[0][['Published', 'Rent', 'Size', 'District']].dropna()
   else:
       result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
