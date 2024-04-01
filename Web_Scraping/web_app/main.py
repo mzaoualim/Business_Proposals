@@ -65,7 +65,7 @@ def main():
   col1, col2 = st.columns(2)
   with col1:
           cities = [c for c in city.keys()]
-          city = st.selectbox('City:', cities)
+          city_ = st.selectbox('City:', cities)
 
   with col2:
           rentals = [r for r in home.keys()]
@@ -74,7 +74,7 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-    data = scraper(city, type)
+    data = scraper(city_, type)
     st.write(data, use_container_width=True)
 
     st.write('---')
