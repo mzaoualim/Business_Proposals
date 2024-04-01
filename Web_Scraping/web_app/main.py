@@ -50,7 +50,7 @@ def scraper(city_name:str, home_type:str):
   ## reset index
   result.reset_index(drop=True, inplace=True)
 
-  return st.dataframe(result, use_container_width=True)
+  return result
 #----------------------------------------------------------------------
 
 def main():
@@ -74,17 +74,17 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-      scraper(city_, types)
-      # st.dataframe(data, use_container_width=True)
-      # csv = data.to_csv()
+      data = scraper(city_, types)
+      st.dataframe(data, use_container_width=True)
+      csv = data.to_csv()
 
-      # st.download_button(
-      #       label="Download Listings as CSV file",
-      #       data=csv,
-      #       file_name='listings.csv',
-      #       mime='text/csv',
-      #       use_container_width=True
-          # )
+      st.download_button(
+            label="Download Listings as CSV file",
+            data=csv,
+            file_name='listings.csv',
+            mime='text/csv',
+            use_container_width=True
+          )
   st.write('---')
 
 
