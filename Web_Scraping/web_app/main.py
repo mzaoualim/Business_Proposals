@@ -26,14 +26,14 @@ home = {
     'Houses': 3
     }
 #----------------------------------------------------------------------
-def scraper(city_:str, types:str):
+def scraper(city_name:str, home_type:str):
   '''
   starter function to retrieve latest rental listing from wg-gesucht.de website
   takes as input city_name and home_type
   return dataframe of available and latest max 20 listed rentals
   '''
   #default link
-  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_], home[types])
+  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_name], home[home_type])
 
   # raw results
   result = pd.read_html(link)
@@ -42,8 +42,8 @@ def scraper(city_:str, types:str):
   ## select columns and drop empty rows
   result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
   ## drop ads rows
-  #result = result[result["District"].str.contains(re.escape("*")) == False]
-  result = result[result["District"].str.contains("from") == False]
+  # result = result[result["District"].str.contains(re.escape("*")) == False]
+  result[result["District"].str.contains('from') == False]
   ## reset index
   result.reset_index(drop=True, inplace=True)
 
