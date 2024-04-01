@@ -40,7 +40,7 @@ def scraper(city_name:str, home_type:str):
   # preprocessing
 
   ## select columns and drop empty rows
-  if home_type == '1 Room Flats':
+  if home_type == '1 Room Flats' or 'Flatshares':
       result = result[0][['Published', 'Rent', 'Size', 'District']].dropna()
   else:
       result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
@@ -74,7 +74,7 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-      st.dataframe(scraper(city_, types), use_container_width=True)
+      # st.dataframe(scraper(city_, types), use_container_width=True)
       
   st.write('---')
 
