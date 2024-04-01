@@ -74,8 +74,7 @@ def main():
   submit = st.button('Get latest listings', use_container_width=True)
 
   if submit:
-    data = scraper(city_, types)
-    # st.write(data)
+    st.write(scraper(city_, types), use_container_width=True)
 
     st.write('---')
 
