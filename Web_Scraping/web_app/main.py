@@ -76,8 +76,8 @@ def main():
 
   if submit:
       AgGrid(scraper(city_, types))
-
-    st.write('---')
+      
+  st.write('---')
 
 
 if __name__ == '__main__':
