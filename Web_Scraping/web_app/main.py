@@ -48,9 +48,9 @@ def scraper(city_name:str, home_type:str):
   # result = result[result["District"].str.contains(re.escape("*")) == False]
   result[result["District"].str.contains('from') == False]
   ## reset index
-  result.reset_index(drop=True, inplace=True)
+  # result.reset_index(drop=True, inplace=True)
 
-  return st.dataframe(result, use_container_width=True)
+  return st.dataframe(result.reset_index(drop=True, inplace=True), use_container_width=True)
 #----------------------------------------------------------------------
 
 def main():
