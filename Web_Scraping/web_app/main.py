@@ -50,7 +50,7 @@ def scraper(city_name:str, home_type:str):
   ## reset index
   result.reset_index(drop=True, inplace=True)
 
-  return result
+  return st.dataframe(result, use_container_width=True)
 #----------------------------------------------------------------------
 
 def main():
@@ -75,7 +75,7 @@ def main():
 
   if submit:
       data = scraper(city_, types)
-      st.dataframe(data, use_container_width=True)
+      # st.dataframe(data, use_container_width=True)
       csv = data.to_csv()
 
       st.download_button(
