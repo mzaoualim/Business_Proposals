@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import re
+#import re
 
 ----------------------------------------------------------------------
 # Inputs to function
@@ -45,7 +45,8 @@ def scraper(city_name:str, home_type:str):
   ## select columns and drop empty rows
   result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
   ## drop ads rows
-  result = result[result["District"].str.contains(re.escape("*")) == False]
+  #result = result[result["District"].str.contains(re.escape("*")) == False]
+  result = result[result["District"].str.contains("from") == False]
   ## reset index
   result.reset_index(drop=True, inplace=True)
 
