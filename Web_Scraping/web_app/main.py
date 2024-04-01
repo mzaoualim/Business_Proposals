@@ -6,9 +6,6 @@ import numpy as np
 #----------------------------------------------------------------------
 # Inputs to function
 
-# link to wg-gesucht.de
-link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.5.2.0.0.html'
-
 # dictionnary of city codes
 city = {
     'Aachen': 1,
@@ -29,14 +26,14 @@ home = {
     'Houses': 3
     }
 #----------------------------------------------------------------------
-def scraper(city_:str, type:str):
+def scraper(city_:str, types:str):
   '''
   starter function to retrieve latest rental listing from wg-gesucht.de website
   takes as input city_name and home_type
   return dataframe of available and latest max 20 listed rentals
   '''
   #default link
-  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_], home[type])
+  link = 'https://www.wg-gesucht.de/en/wohnungen-in-Berlin.%d.%d.0.0.html' %(city[city_], home[types])
 
   # raw results
   result = pd.read_html(link)
