@@ -40,14 +40,14 @@ def scraper(city_name:str, home_type:str):
   # preprocessing
 
   ## select columns and drop empty rows
-  result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
+  # result = result[0][['Rooms', 'Published', 'Rent', 'Size', 'District']].dropna()
   ## drop ads rows
   # result = result[result["District"].str.contains(re.escape("*")) == False]
-  result[result["District"].str.contains('from') == False]
+  # result[result["District"].str.contains('from') == False]
   ## reset index
-  result.reset_index(drop=True, inplace=True)
+  # result.reset_index(drop=True, inplace=True)
 
-  return result
+  return result[0]
 #----------------------------------------------------------------------
 
 def main():
