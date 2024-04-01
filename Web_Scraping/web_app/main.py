@@ -82,7 +82,8 @@ def main():
             label="Download Listings as CSV file",
             data=csv,
             file_name='listings.csv',
-            mime='text/csv'
+            mime='text/csv',
+            use_container_width=True
           )
   st.write('---')
 
