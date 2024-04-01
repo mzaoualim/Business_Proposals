@@ -76,6 +76,14 @@ def main():
   if submit:
       data = scraper(city_, types)
       st.dataframe(data, use_container_width=True)
+      csv = data.to_csv()
+
+      st.download_button(
+            label="Download Listings as CSV file",
+            data=csv,
+            file_name='listings.csv',
+            mime='text/csv'
+          )
   st.write('---')
 
 
