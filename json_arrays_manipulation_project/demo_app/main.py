@@ -2,17 +2,41 @@ import streamlit as st
 import pandas as pd
 
 # loading data
-data = pd.read_csv('Sales_Dashboard/production_files/data.xls')
-
-# raw data preview
-st.write('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
-
+data = pd.read_csv('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
 # data manipulation
 df = pd.DataFrame.from_dict(data=data.iloc[:, 0].to_dict(), orient='index')
 cols = df.columns
 
-# select cols
-st.select('Select desired columns', cols)
 
-# display selected data
-st.dataframe(data, use_container_width=True)
+def main():
+  # App Title
+  st.markdown("<h1 style='text-align: center;'> Script Demo </h1>", unsafe_allow_html=True)
+  st.write('---')
+  
+  # raw data preview 
+  st.markdown("<h2 style='text-align: center;'> Raw Data </h2>", unsafe_allow_html=True)
+  st.write('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
+  st.write('---')
+
+  # select cols
+  col_select = st.multiselect('Select desired columns', cols)
+  
+  # display selected data
+  submit = st.button('Get filtered Data', use_container_width=True)
+  if submit:
+    st.dataframe(data[col_select], use_container_width=True)
+    
+    # prepare to download filtered data
+    csv = data[col_select].to_csv()
+    st.download_button(
+          label="Download filtered data",
+          data=csv,
+          file_name='filered.csv',
+          mime='text/csv',
+          use_container_width=True
+        )
+  st.write('---')
+
+
+if __name__ == '__main__':
+  main()
