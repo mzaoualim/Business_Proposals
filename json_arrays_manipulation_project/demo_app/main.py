@@ -15,7 +15,7 @@ def main():
   
   # raw data preview 
   st.markdown("<h2 style='text-align: center;'> Raw Data </h2>", unsafe_allow_html=True)
-  st.write('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
+  st.write(data)
   st.write('---')
 
   # select cols
@@ -24,10 +24,10 @@ def main():
   # display selected data
   submit = st.button('Get filtered Data', use_container_width=True)
   if submit:
-    st.dataframe(data[col_select], use_container_width=True)
+    st.dataframe(df[col_select], use_container_width=True)
     
     # prepare to download filtered data
-    csv = data[col_select].to_csv()
+    csv = df[col_select].to_csv()
     st.download_button(
           label="Download filtered data",
           data=csv,
