@@ -1,0 +1,44 @@
+{
+  "reviews": [
+    {
+      "review_text": "There are plenty of cleaning companies out there. I would recommend doing yourself a favor and choosing a different one than Swept Away. We paid for a deep clean and items were broken and not dusted. I decided to give them another chance and a bathroom was completely missed/untouched during the second cleaning. A complete waste of $400!",
+      "review_rating": 1,
+      "review_link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURsMHZySTVnRRAB!2m1!1s0x0:0xeee0929f8d86d55e!3m1!1s2@1:CIHM0ogKEICAgIDl0vrI5gE%7CCgwI28ulqwYQ2KLRgAE%7C?hl=en",
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURsMHZySTVnRRAB",
+      "review_datetime_utc": "12/01/2023 04:49:31",
+      "author_title": "Danielle Walker",
+      "author_link": "https://www.google.com/maps/contrib/109444982882443430641?hl=en",
+      "author_image": "https://lh3.googleusercontent.com/a/ACg8ocL51OlFfBOgInM-zjA1bvh86umm7jhi9vGuvPdVy7tADwPo3A=s120-c-rp-mo-br100"
+    },
+    {
+      "review_text": "They're the best",
+      "review_rating": 5,
+      "review_link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ1eHFhV0hnEAE!2m1!1s0x0:0xeee0929f8d86d55e!3m1!1s2@1:CIHM0ogKEICAgID5xqaWHg%7CCgwIosDbqQYQqO6QjwE%7C?hl=en",
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUQ1eHFhV0hnEAE",
+      "review_datetime_utc": "10/23/2023 21:05:38",
+      "author_title": "Christopher Noel",
+      "author_link": "https://www.google.com/maps/contrib/103576828800088113249?hl=en",
+      "author_image": "https://lh3.googleusercontent.com/a-/ALV-UjXPANvWnoiAiWlOJkpnQO_dOxyt37AkFczAtdJAcC6GRdFGy_l3=s120-c-rp-mo-br100"
+    },
+    {
+      "review_text": "Poor management skills and they treat employees like trash.",
+      "review_rating": 1,
+      "review_link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURacmJPendBRRAB!2m1!1s0x0:0xeee0929f8d86d55e!3m1!1s2@1:CIHM0ogKEICAgIDZrbOzwAE%7CCgwIiZqAqQYQ0LqB5wE%7C?hl=en",
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURacmJPendBRRAB",
+      "review_datetime_utc": "10/06/2023 13:35:05",
+      "author_title": "chris perkins",
+      "author_link": "https://www.google.com/maps/contrib/100148780695333613177?hl=en",
+      "author_image": "https://lh3.googleusercontent.com/a-/ALV-UjVJR-tvnOmXc03w9VAAMvqY6w7H2Z7ynV6tbGJtNL1AjtLp9tpd=s120-c-rp-mo-br100"
+    },
+    {
+      "review_text": "",
+      "review_rating": 2,
+      "review_link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNwdjhHbTFRRRAB!2m1!1s0x0:0xeee0929f8d86d55e!3m1!1s2@1:CIHM0ogKEICAgICpv8Gm1QE%7CCgsIsuLjpgYQ4PjXXQ%7C?hl=en",
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNwdjhHbTFRRRAB",
+      "review_datetime_utc": "08/13/2023 15:05:22",
+      "author_title": "julie meese",
+      "author_link": "https://www.google.com/maps/contrib/118113917434968855202?hl=en",
+      "author_image": "https://lh3.googleusercontent.com/a-/ALV-UjVrqRwasCI1pnbvZJofevSvHKN9vkuqxBOGWHQaLSeZhF8cXW4=s120-c-rp-mo-br100"
+    }
+  ]
+}
