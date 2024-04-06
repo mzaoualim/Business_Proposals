@@ -19,6 +19,7 @@ def main():
   st.write('---')
 
   # select cols
+  st.markdown("<h2 style='text-align: center;'> Filter & Customize </h2>", unsafe_allow_html=True)
   col_select = st.multiselect('Select desired columns', cols)
   
   # display selected data
