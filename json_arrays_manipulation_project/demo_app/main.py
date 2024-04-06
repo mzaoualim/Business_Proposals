@@ -15,7 +15,7 @@ def main():
   
   # raw data preview 
   st.markdown("<h2 style='text-align: center;'> Raw Data </h2>", unsafe_allow_html=True)
-  st.write(data, use_container_width=True)
+  st.json(data, use_container_width=True)
   st.write('---')
 
   # select cols
