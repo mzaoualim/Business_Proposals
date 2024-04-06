@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # loading data
-data = pd.read_csv('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
+data = pd.read_json('json_arrays_manipulation_project/demo_app/Reviews-Array.txt')
 # data manipulation
 df = pd.DataFrame.from_dict(data=data.iloc[:, 0].to_dict(), orient='index')
 cols = df.columns
